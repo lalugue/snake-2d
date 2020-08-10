@@ -16,6 +16,11 @@ public class SnakeMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    void FixedUpdate()
+    {
         this.transform.position += direction * velocity * Time.deltaTime;
     }
 }
