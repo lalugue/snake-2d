@@ -6,10 +6,12 @@ public class SnakeMovement : MonoBehaviour
 {
     public int velocity = 10;
     Vector3 direction = Vector2.up;
+    float currentTime;
 
     // Start is called before the first frame update
     void Start()
     {
+        currentTime = Time.time;
         
     }
 
@@ -40,10 +42,12 @@ public class SnakeMovement : MonoBehaviour
             }
             
         }
-    }
 
-    void FixedUpdate()
-    {
-        this.transform.position += direction * velocity * Time.deltaTime;
+        if(Time.time - currentTime >= 0.2f){
+            currentTime = Time.time;
+            this.transform.Translate(direction * 1);              
+            
+        }
     }
+    
 }
