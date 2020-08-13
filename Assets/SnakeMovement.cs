@@ -45,6 +45,8 @@ public class SnakeMovement : MonoBehaviour
 
         if(Time.time - currentTime >= 0.2f){
             currentTime = Time.time;
+            //move by one unit
+            //Note: pixels per unit can be seen by viewing sprite in Inspector
             this.transform.Translate(direction * 1);              
             
         }
