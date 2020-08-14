@@ -8,6 +8,8 @@ public class SnakeMovement : MonoBehaviour
     Vector3 direction = Vector2.up;
     float currentTime;
 
+    public GameObject foodObject;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +52,21 @@ public class SnakeMovement : MonoBehaviour
             this.transform.Translate(direction * 1);              
             
         }
+    }
+
+    void OnCollisionEnter2D(Collision2D collisionInfo)
+    {
+        string name = collisionInfo.gameObject.name; 
+
+        //if collides with food, add score and destroy
+        if(name == "Food"){
+            Destroy(collisionInfo.gameObject);
+            Instantiate(foodObject);
+        }        
+
+        //else if wall, game over
+
+        
     }
     
 }
