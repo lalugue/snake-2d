@@ -9,19 +9,28 @@ public class Food : MonoBehaviour
     y: -3.5 to 3.5
     */
     // Start is called before the first frame update
-    float x;
-    float y;
+    
 
     System.Random rnd = new System.Random();
+    float x;
+    float y;
     
     
     void Start()
     {
-        this.transform.position = new Vector2((float)rnd.Next(-5,6) - 0.5f, (float)rnd.Next(-3,5) - 0.5f);
+        x = (float)rnd.Next(-5,6) - 0.5f;
+        y = (float)rnd.Next(-3,5) - 0.5f;
+
+        this.transform.position = new Vector2(x, y);
     }
 
     // Update is called once per frame
     void Update()
+    {
+        
+    }
+
+    void OnCollisionEnter2D(Collision2D collisionInfo)
     {
         
     }
