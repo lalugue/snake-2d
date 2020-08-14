@@ -14,7 +14,8 @@ public class Food : MonoBehaviour
     System.Random rnd = new System.Random();
     float x;
     float y;
-    
+
+       
     
     void Start()
     {
@@ -30,8 +31,5 @@ public class Food : MonoBehaviour
         
     }
 
-    void OnCollisionEnter2D(Collision2D collisionInfo)
-    {
-        
-    }
+    
 }
