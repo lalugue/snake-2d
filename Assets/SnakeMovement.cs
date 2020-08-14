@@ -54,12 +54,15 @@ public class SnakeMovement : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collisionInfo)
+    void OnTriggerEnter2D(Collider2D collisionInfo)
     {
+        Debug.Log("Snake collision detected!");
+        Debug.Log(collisionInfo.gameObject.name);        
+
         string name = collisionInfo.gameObject.name; 
 
         //if collides with food, add score and destroy
-        if(name == "Food"){
+        if(name.Contains("Food")){
             Destroy(collisionInfo.gameObject);
             Instantiate(foodObject);
         }        
