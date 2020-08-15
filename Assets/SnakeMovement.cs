@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class SnakeMovement : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class SnakeMovement : MonoBehaviour
     float currentTime;
 
     public GameObject foodObject;
+        
+    //GameObject containing tail GameObjects as children
+    public Transform tails;
+    Vector3 oldPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -46,10 +51,21 @@ public class SnakeMovement : MonoBehaviour
         }
 
         if(Time.time - currentTime >= 0.2f){
+            //get old position
+            oldPosition = this.transform.position;
+
+            //reset time
             currentTime = Time.time;
+
             //move by one unit
             //Note: pixels per unit can be seen by viewing sprite in Inspector
-            this.transform.Translate(direction * 1);              
+            this.transform.Translate(direction * 1);  
+
+            //move end of tail to old position of head            
+            tails.GetChild(tails.childCount - 1).transform.position = oldPosition;
+
+            //set as first element of array
+            tails.GetChild(tails.childCount - 1).SetAsFirstSibling();          
             
         }
     }
