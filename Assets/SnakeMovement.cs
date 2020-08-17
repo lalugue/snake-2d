@@ -14,11 +14,13 @@ public class SnakeMovement : MonoBehaviour
     //GameObject containing tail GameObjects as children
     public Transform tails;
     Vector3 oldPosition;
+    boolean hasEaten;
 
     // Start is called before the first frame update
     void Start()
     {
         currentTime = Time.time;
+        hasEaten = false;
         
     }
 
@@ -59,13 +61,17 @@ public class SnakeMovement : MonoBehaviour
 
             //move by one unit
             //Note: pixels per unit can be seen by viewing sprite in Inspector
-            this.transform.Translate(direction * 1);  
+            this.transform.Translate(direction * 1);
 
+            if(!hasEaten){
             //move end of tail to old position of head            
             tails.GetChild(tails.childCount - 1).transform.position = oldPosition;
 
             //set as first element of array
-            tails.GetChild(tails.childCount - 1).SetAsFirstSibling();          
+            tails.GetChild(tails.childCount - 1).SetAsFirstSibling();   
+            }
+
+            hasEaten = false;       
             
         }
     }
@@ -81,6 +87,10 @@ public class SnakeMovement : MonoBehaviour
         if(name.Contains("Food")){
             Destroy(collisionInfo.gameObject);
             Instantiate(foodObject);
+            hasEaten = true;
+
+            //add new body to tail;
+
         }        
 
         //else if wall, game over
