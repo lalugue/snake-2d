@@ -7,6 +7,7 @@ public class SnakeMovement : MonoBehaviour
 {
     public int velocity = 10;
     Vector3 direction = Vector2.up;
+    Vector3 currentDirection = Vector2.up;
     float currentTime;
 
     public GameObject foodObject;
@@ -28,25 +29,25 @@ public class SnakeMovement : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.DownArrow)){
-            if(direction != Vector3.up){
+            if(currentDirection != Vector3.up){
                 direction = Vector3.down;
             }
 
         }
         if(Input.GetKeyDown(KeyCode.UpArrow)){
-            if(direction != Vector3.down){
+            if(currentDirection != Vector3.down){
                 direction = Vector3.up;
             }
             
         }
         if(Input.GetKeyDown(KeyCode.LeftArrow)){
-            if(direction != Vector3.right){
+            if(currentDirection != Vector3.right){
                 direction = Vector3.left;
             }
             
         }
         if(Input.GetKeyDown(KeyCode.RightArrow)){
-            if(direction != Vector3.left){
+            if(currentDirection != Vector3.left){
                 direction = Vector3.right;
             }
             
@@ -62,6 +63,7 @@ public class SnakeMovement : MonoBehaviour
             //move by one unit
             //Note: pixels per unit can be seen by viewing sprite in Inspector
             this.transform.Translate(direction * 1);
+            currentDirection = direction;
 
             if(!hasEaten){
             //move end of tail to old position of head            
