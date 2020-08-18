@@ -14,7 +14,7 @@ public class SnakeMovement : MonoBehaviour
     //GameObject containing tail GameObjects as children
     public Transform tails;
     Vector3 oldPosition;
-    boolean hasEaten;
+    bool hasEaten;
 
     // Start is called before the first frame update
     void Start()
@@ -76,6 +76,7 @@ public class SnakeMovement : MonoBehaviour
         }
     }
 
+    //OnTriggerEnter2D is called before Update
     void OnTriggerEnter2D(Collider2D collisionInfo)
     {
         Debug.Log("Snake collision detected!");
