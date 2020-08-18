@@ -11,6 +11,7 @@ public class SnakeMovement : MonoBehaviour
     float currentTime;
 
     public GameObject foodObject;
+    public GameObject body;
         
     //GameObject containing tail GameObjects as children
     public Transform tails;
@@ -72,7 +73,19 @@ public class SnakeMovement : MonoBehaviour
             //set as first element of array
             tails.GetChild(tails.childCount - 1).SetAsFirstSibling();   
             }
+            else{
+                //add new body to tail;
+                GameObject emptyObj = new GameObject();
+                Transform pos = emptyObj.transform;
+                pos.position = oldPosition; 
+                GameObject newBody = Instantiate(body, pos);               
 
+                newBody.transform.parent = tails;
+                newBody.transform.SetSiblingIndex(0);
+
+                Destroy(emptyObj);
+            }
+            
             hasEaten = false;       
             
         }
@@ -90,9 +103,9 @@ public class SnakeMovement : MonoBehaviour
         if(name.Contains("Food")){
             Destroy(collisionInfo.gameObject);
             Instantiate(foodObject);
-            hasEaten = true;
 
-            //add new body to tail;
+            //enable flag
+            hasEaten = true;           
 
         }        
 
