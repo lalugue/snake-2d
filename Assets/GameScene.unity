@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 159340637}
   - component: {fileID: 159340639}
   - component: {fileID: 159340638}
+  - component: {fileID: 159340640}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -155,7 +156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 285, y: 129}
+  m_AnchoredPosition: {x: 254, y: 129}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &159340638
@@ -189,7 +190,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: Test
 --- !u!222 &159340639
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -198,6 +199,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 159340636}
   m_CullTransparentMesh: 0
+--- !u!114 &159340640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159340636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f638aeb96b64283468784778b0701a15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  text: {fileID: 159340638}
 --- !u!1 &464540030
 GameObject:
   m_ObjectHideFlags: 0
@@ -1158,5 +1173,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1118367689222840958, guid: c9560ea7c4c74df4783476cee20f6d36,
+        type: 3}
+      propertyPath: score
+      value: 
+      objectReference: {fileID: 159340640}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9560ea7c4c74df4783476cee20f6d36, type: 3}
