@@ -18,6 +18,9 @@ public class SnakeMovement : MonoBehaviour
     Vector3 oldPosition;
     bool hasEaten;
 
+    //score object
+    public Score score;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -105,7 +108,10 @@ public class SnakeMovement : MonoBehaviour
             Instantiate(foodObject);
 
             //enable flag
-            hasEaten = true;           
+            hasEaten = true;
+
+            //add score
+            score.AddScore();           
 
         }        
 
