@@ -5,18 +5,22 @@ using System.Linq;
 
 public class SnakeMovement : MonoBehaviour
 {
-    public int velocity = 10;
+    public int velocity = 1;
     Vector3 direction = Vector2.up;
     Vector3 currentDirection = Vector2.up;
     float currentTime;
 
     public GameObject foodObject;
     public GameObject body;
+    public GameObject snakeObject;
+    
         
     //GameObject containing tail GameObjects as children
     public Transform tails;
     Vector3 oldPosition;
     bool hasEaten;
+    bool isActive = true;
+    bool isVisible = false;
 
     //score object
     public Score score;
@@ -57,7 +61,7 @@ public class SnakeMovement : MonoBehaviour
             
         }
 
-        if(Time.time - currentTime >= 0.2f){
+        if(Time.time - currentTime >= 0.2f && isActive){
             //get old position
             oldPosition = this.transform.position;
 
@@ -66,7 +70,7 @@ public class SnakeMovement : MonoBehaviour
 
             //move by one unit
             //Note: pixels per unit can be seen by viewing sprite in Inspector
-            this.transform.Translate(direction * 1);
+            this.transform.Translate(direction * velocity);
             currentDirection = direction;
 
             if(!hasEaten){
@@ -113,11 +117,32 @@ public class SnakeMovement : MonoBehaviour
             //add score
             score.AddScore();           
 
-        }        
-
-        //else if wall, game over
+        }
+        //else if wall (or snake), game over
+        else{
+            Debug.Log("non-food collision detected");            
+            InvokeRepeating("Blink", 0, 0.5f);
+        }
 
         
     }
+
+    
+ 
+    void Blink()
+    {
+        //snakeObject.GetComponent<Renderer>().enabled = !this.GetComponent<Renderer>().enabled; 
+        velocity = 0;       
+        isActive = false;
+        isVisible = !isVisible;
+        //snakeObject.SetActive(isActive);
+        //this.GetComponent<Renderer>().enabled = !this.GetComponent<Renderer>().enabled; 
+        Renderer[] renderers = snakeObject.GetComponentsInChildren<Renderer>();
+        foreach (Renderer r in renderers){
+            r.enabled = isVisible;
+        }
+        
+    }
+
     
 }
