@@ -19,7 +19,10 @@ public class SnakeMovement : MonoBehaviour
     public Transform tails;
     Vector3 oldPosition;
     bool hasEaten;
+    
+    //determines if snake can move
     bool isActive = true;
+    //determines if snake is visible
     bool isVisible = false;
 
     //score object
