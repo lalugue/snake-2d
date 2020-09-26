@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class SnakeMovement : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class SnakeMovement : MonoBehaviour
     Vector3 direction = Vector2.up;
     Vector3 currentDirection = Vector2.up;
     float currentTime;
+    float stopTime;
 
     public GameObject foodObject;
     public GameObject body;
@@ -123,7 +125,8 @@ public class SnakeMovement : MonoBehaviour
         }
         //else if wall (or snake), game over
         else{
-            Debug.Log("non-food collision detected");            
+            Debug.Log("non-food collision detected"); 
+            stopTime = Time.time;          
             InvokeRepeating("Blink", 0, 0.5f);
         }
 
@@ -143,6 +146,10 @@ public class SnakeMovement : MonoBehaviour
         Renderer[] renderers = snakeObject.GetComponentsInChildren<Renderer>();
         foreach (Renderer r in renderers){
             r.enabled = isVisible;
+        }
+
+        if(Time.time - stopTime >= 5.0f){
+            SceneManager.LoadScene("MenuScene");
         }
         
     }
