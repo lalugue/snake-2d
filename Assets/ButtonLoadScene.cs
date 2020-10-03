@@ -10,8 +10,12 @@ public class ButtonLoadScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        
+        //disable logging if not in editor
+        #if UNITY_EDITOR
+        Debug.unityLogger.logEnabled = true;
+        #else
+        Debug.unityLogger.logEnabled = false;
+        #endif        
     }
 
     public void LoadGame(){
