@@ -5,12 +5,9 @@ using UnityEngine;
 public class Food : MonoBehaviour
 {
     /*
-    x: -5.5 to 4.5
-    y: -3.5 to 3.5
+    x: -8.5 to 8.5
+    y: -6.5 to 6.5
     */
-    // Start is called before the first frame update
-    
-
     System.Random rnd = new System.Random();
     float x;
     float y;
@@ -18,17 +15,17 @@ public class Food : MonoBehaviour
     public GameObject foodObject;
 
        
-    
+    // Start is called before the first frame update
     void Start()
     {
-        x = (float)rnd.Next(-5,6) - 0.5f;
-        y = (float)rnd.Next(-3,5) - 0.5f;
+        x = (float)rnd.Next(-8,9) - 0.5f;
+        y = (float)rnd.Next(-6,7) - 0.5f;
 
         Collider2D[] intersecting = Physics2D.OverlapCircleAll(new Vector2(x, y), 0.01f);
         while(intersecting.Length > 0){
             Debug.Log("food spawn at snake body detected");
-            x = (float)rnd.Next(-5,6) - 0.5f;
-            y = (float)rnd.Next(-3,5) - 0.5f;
+            x = (float)rnd.Next(-8,9) - 0.5f;
+            y = (float)rnd.Next(-6,7) - 0.5f;
             intersecting = Physics2D.OverlapCircleAll(new Vector2(x, y), 0.01f);
         }
 
