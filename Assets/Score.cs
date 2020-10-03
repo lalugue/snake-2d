@@ -9,7 +9,7 @@ public class Score : MonoBehaviour
     public int score = 0;
     public Text text;
     void Start()
-    {
+    {      
         text.text = score.ToString();
     }
 
