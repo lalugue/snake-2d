@@ -136,13 +136,11 @@ public class SnakeMovement : MonoBehaviour
     
  
     void Blink()
-    {
-        //snakeObject.GetComponent<Renderer>().enabled = !this.GetComponent<Renderer>().enabled; 
+    {       
         velocity = 0;       
         isActive = false;
         isVisible = !isVisible;
-        //snakeObject.SetActive(isActive);
-        //this.GetComponent<Renderer>().enabled = !this.GetComponent<Renderer>().enabled; 
+        
         Renderer[] renderers = snakeObject.GetComponentsInChildren<Renderer>();
         foreach (Renderer r in renderers){
             r.enabled = isVisible;

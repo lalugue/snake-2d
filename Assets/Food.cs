@@ -30,18 +30,6 @@ public class Food : MonoBehaviour
         }
 
         this.transform.position = new Vector2(x, y);
-
-        /*if (intersecting.Length == 0) {
-            //code to run if nothing is intersecting as the length is 0
-            this.transform.position = new Vector2(x, y);
-        } else {
-            //code to run if something is intersecting it
-            Debug.Log("Food about to spawn at snake");            
-            Instantiate(foodObject);
-            Destroy(this.gameObject);
-        }*/
-        
-
     }
 
     // Update is called once per frame

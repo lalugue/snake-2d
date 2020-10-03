@@ -13,10 +13,6 @@ public class ButtonLoadScene : MonoBehaviour
         
         
     }
-    /*void OnClick(){
-        Debug.Log("Loading game!");
-        SceneManager.LoadSceneAsync("GameScene");
-    }*/
 
     public void LoadGame(){
         SceneManager.UnloadSceneAsync("MenuScene");
