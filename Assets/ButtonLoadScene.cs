@@ -13,13 +13,14 @@ public class ButtonLoadScene : MonoBehaviour
         
         
     }
-    void OnClick(){
+    /*void OnClick(){
         Debug.Log("Loading game!");
-        SceneManager.LoadScene("GameScene");
-    }
+        SceneManager.LoadSceneAsync("GameScene");
+    }*/
 
     public void LoadGame(){
-        SceneManager.LoadScene("GameScene");
+        SceneManager.UnloadSceneAsync("MenuScene");
+        SceneManager.LoadSceneAsync("GameScene");
     }
 
     // Update is called once per frame

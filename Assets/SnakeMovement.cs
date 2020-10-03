@@ -149,7 +149,8 @@ public class SnakeMovement : MonoBehaviour
         }
 
         if(Time.time - stopTime >= 5.0f){
-            SceneManager.LoadScene("MenuScene");
+            SceneManager.UnloadSceneAsync("GameScene");
+            SceneManager.LoadSceneAsync("MenuScene");
         }
         
     }
