@@ -1,6 +1,6 @@
-# snake-2d
+# Snake 2D
 
-A snake game in 2D!
+Classic Snake goodness, now in PC!
 
 # How to play
 
