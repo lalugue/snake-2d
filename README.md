@@ -14,3 +14,7 @@ Classic Snake goodness, now in PC!
 ![screenshot 2](Pictures/screenshot2.png)
 ![screenshot 3](Pictures/screenshot3.png)
 
+# Acknowledgements
+
+Retro Space font by [Dizzy Crow](https://opengameart.org/users/dizzy-crow), acquired under [CC0](Assets/Art/cc0.png) license
+
