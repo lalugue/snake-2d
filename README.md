@@ -2,6 +2,8 @@
 
 Classic Snake goodness, now in PC!
 
+[Play Snake here!](https://koalatte.itch.io/snake-2d)
+
 # How to play
 
 - Click the `Start` button to start playing
